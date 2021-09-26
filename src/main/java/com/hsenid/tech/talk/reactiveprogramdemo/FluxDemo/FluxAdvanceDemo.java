@@ -15,51 +15,14 @@ public class FluxAdvanceDemo {
 		// ========== Flux.create =================
 		// ========================================
 
-		// only once instance of fluxSink
-		// thread safe
 
-//		Flux.create(fluxSink -> {
-//
-//			fluxSink.next(1);
-//			fluxSink.next(2);
-//			fluxSink.complete();
-//
-//		}).subscribe(
-//				item -> System.out.println("Received: " + item),
-//				err -> System.out.println("Error: " + err.getMessage()),
-//				() -> System.out.println("Completed")
-//		);
 
 		// ========================================
 		// ========== Flux.generate ===============
 		// ========================================
 
-		// generate not only one synchronousSink but many
 
-//		Flux.generate(synchronousSink -> {
-//			synchronousSink.next(1);
-//			synchronousSink.next(2);
-//			synchronousSink.complete();
-//		}).subscribe(
-//				item -> System.out.println("Received: " + item),
-//				err -> System.out.println("Error: " + err.getMessage()),
-//				() -> System.out.println("Completed")
-//		);
-
-		Flux.generate(
-				() -> 1,
-				(state, sink) -> {
-					sink.next(state);
-					if (state >= 10) {
-						sink.complete();
-					}
-					return state + 1;
-				}
-		).subscribe(
-				item -> System.out.println("Received: " + item),
-				err -> System.out.println("Error: " + err.getMessage()),
-				() -> System.out.println("Completed")
-		);
+		// using flux generate print 1..10
 
 	}
 

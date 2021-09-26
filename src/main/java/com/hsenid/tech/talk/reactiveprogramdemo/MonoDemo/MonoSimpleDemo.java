@@ -5,18 +5,12 @@ import reactor.core.publisher.Mono;
 public class MonoSimpleDemo {
 	public static void main(String[] args) {
 
-		// What is the easiest way create flux ?
-		Mono<String> ex1 = Mono.just("tech-talk");
-
-		// nothing happened until you subscribe
-		ex1.subscribe(s -> System.out.println("Received: " + s));
+		// What is the easiest way create flux ???
 
 
-		ex1.subscribe(
-				item -> System.out.println("Received: " + item),
-				err -> System.out.println("Error: " + err.getMessage()),
-				() -> System.out.println("Completed")
-		);
+		// How we subscribe to it ???
+
+		// Explore more about subscriber method
 
 
 		// ====================================================================

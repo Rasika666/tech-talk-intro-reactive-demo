@@ -9,18 +9,16 @@ import java.util.Locale;
 
 public class MonoAdvanceDemo {
 	public static void main(String[] args) throws InterruptedException {
-		// how to lazy load
+
+
 		// Get the first name and printed with reactive pipeline
-//		Mono<String> just = Mono.just(getFirstName());
 
-//		Mono<String> stringMono = Mono.fromCallable(() -> getFirstName());
-
+		// Lazily Get the first name and printed with reactive pipeline
 
 
-		getLastName();
-		getLastName()
-				.subscribe(item -> System.out.println("Received: " + item));
-		getLastName();
+		// =================================================================
+		// ============== pipeline execution vs build ======================
+		// =================================================================
 
 
 	}
@@ -31,9 +29,7 @@ public class MonoAdvanceDemo {
 		return Faker.instance().name().firstName();
 	}
 
-	// =================================================================
-	// ============== pipeline execution vs build ======================
-	// =================================================================
+
 
 	public static Mono<String> getLastName() {
 		System.out.println("Entered getLastName method...");
