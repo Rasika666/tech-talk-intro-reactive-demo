@@ -22,10 +22,8 @@ public class LifeCycleHooksDemo {
 		.doOnTerminate(() -> System.out.println("doOnTerminate"))
 		.doOnError(throwable -> System.out.println("doOnError: " + throwable))
 		.doFirst(() -> System.out.println("doFirst"))
-
-		.doOnDiscard(Object.class, o -> System.out.println("doOnDiscard: " + o))
-				.take(2)
-				.doFinally(signalType -> System.out.println("doFinally: " + signalType))
+		.doFinally(signalType -> System.out.println("doFinally: " + signalType))
+		.doOnDiscard(Object.class, o -> System.out.println("doOnDiscard: " + o)).take(2)
 		.subscribe(
 				item -> System.out.println("Received: " + item),
 				err -> System.out.println("Error: " + err.getMessage()),
