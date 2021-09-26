@@ -28,7 +28,7 @@ public class FluxBasicDemo {
 		// TODO: Flux to Mono
 	}
 
-	private String[] getArray() {
+	private static String[] getArray() {
 		return new String[]{"one", "two", "three", "four"};
 	}
 
@@ -36,7 +36,15 @@ public class FluxBasicDemo {
 		return Arrays.asList("one", "two", "three");
 	}
 
-	private Stream<String> getStream() {
+	private static Stream<String> getStream() {
 		return getIterable().stream();
+	}
+
+	private static Mono<String> getMono() {
+		return Mono.just("abc");
+	}
+
+	private static Flux<Integer> getFlux() {
+		return Flux.range(1, 10);
 	}
 }
