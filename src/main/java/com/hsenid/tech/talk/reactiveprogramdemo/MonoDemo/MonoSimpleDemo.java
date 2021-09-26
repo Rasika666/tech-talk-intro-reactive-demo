@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 public class MonoSimpleDemo {
 	public static void main(String[] args) {
 
-		// What is the easiest way create flux ???
+		// What is the easiest way create Mono ???
 
 
 		// How we subscribe to it ???
@@ -21,11 +21,11 @@ public class MonoSimpleDemo {
 				.map(s -> s.length())
 				.map(i -> i / 0);
 
-		ex2.subscribe(
-				item -> System.out.println("Received: " + item),
-				err -> System.out.println("Error: " + err.getMessage()),
-				() -> System.out.println("Completed")
-		);
+//		ex2.subscribe(
+//				item -> System.out.println("Received: " + item),
+//				err -> System.out.println("Error: " + err.getMessage()),
+//				() -> System.out.println("Completed")
+//		);
 
 
 	}
